@@ -19,15 +19,16 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+    TextView mToyListTextView;
 
-    // TODO (1) Declare a TextView variable called mToysListTextView
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mToyTextView = findViewById(R.id.tv_toy_names);
 
-        // TODO (3) Use findViewById to get a reference to the TextView from the layout
 
         // TODO (4) Use the static ToyBox.getToyNames method and store the names in a String array
 
