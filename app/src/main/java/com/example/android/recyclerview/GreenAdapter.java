@@ -20,6 +20,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.List;
+
 /**
  * We couldn't come up with a good name for this class. Then, we realized
  * that this lesson is about RecyclerView.
@@ -33,7 +35,29 @@ import android.widget.TextView;
  * contents are green.
  */
 // TODO (4) From GreenAdapter, extend RecyclerView.Adapter<NumberViewHolder>
-public class GreenAdapter {
+public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHolder>{
+    private  static final String TAG = GreenAdapter.class.getSimpleName();
+
+    private int mNumberItems;
+
+    public GreenAdapter(int numberOfItems) {
+        this.mNumberItems = numberOfItems;
+    }
+    @Override
+    public NumberViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Context context = viewGroup.getContext();
+        int LayoutIdForListItem=R.layout.number_list_item;
+
+        LayoutInflater inflater = LayoutInflater.from(context);
+        boolean shouldAttachToParentImmediately = false;
+
+        View view = inflater.inflate(layoutIdForListItem, viewGroup, shouldAttachToParentImmediately);
+        NumberViewHolder viewHolder = new NumberViewHolder(view);
+
+        return viewHolder;
+    }
+
+
 
     // TODO (1) Add a private int variable called mNumberItems
 
@@ -43,6 +67,16 @@ public class GreenAdapter {
     // TODO (5) Override the onCreateViewHolder method
     // TODO (6) Create and return a new NumberViewHolder within this method
 
+    @Override
+    public void onBindViewHolder(NumberViewHolder holder, int position) {
+ Log.d(TAG, "#" + position);
+        holder.bind(position);
+    }
+
+    @Override
+    public int getItemCount() {
+        return 0;
+    }
     // TODO (7) Override onBindViewHolder
     // TODO (8) Within onBindViewHolder, call holder.bind and pass in the position
 
