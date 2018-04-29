@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     /* Fields that will store our EditText and Button */
     private EditText mNameEntry;
     private Button mDoSomethingCoolButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,8 +58,9 @@ public class MainActivity extends AppCompatActivity {
                  * wanted to demonstrate what parameter we were using "MainActivity.this" for as
                  * clear as possible.
                  */
-                Context context = MainActivity.this;
-
+                  //  Context context = MainActivity.this;
+                Intent intent = new 0Intent(this.MainActiviity , ChildActivity.class);
+                StartActivity(intent);
                 // TODO (1) Store ChildActivity.class in a Class object called destinationActivity
 
                 // TODO (2) Create an Intent to start ChildActivity
